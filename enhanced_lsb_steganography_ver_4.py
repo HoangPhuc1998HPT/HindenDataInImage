@@ -692,10 +692,10 @@ class SteganographyGUI(QtWidgets.QMainWindow):
                     psnr_enhanced = self.enhanced_lsb.calculate_psnr(self.cover_image, stego_enhanced)
                     mse_enhanced = self.enhanced_lsb.calculate_mse(self.cover_image, stego_enhanced)
 
-                    results_text += f"✅ Enhanced LSB: Embedded in {embed_time_enhanced:.3f}s\n"
+                    results_text += f"Enhanced LSB: Embedded in {embed_time_enhanced:.3f}s\n"
                     results_text += f"   PSNR: {psnr_enhanced:.2f} dB, MSE: {mse_enhanced:.4f}\n\n"
                 else:
-                    results_text += "❌ Enhanced LSB: Embedding failed\n\n"
+                    results_text += "Enhanced LSB: Embedding failed\n\n"
 
             # Traditional LSB
             if self.method_traditional.isChecked():
@@ -708,10 +708,10 @@ class SteganographyGUI(QtWidgets.QMainWindow):
                     psnr_traditional = self.traditional_lsb.calculate_psnr(self.cover_image, stego_traditional)
                     mse_traditional = self.traditional_lsb.calculate_mse(self.cover_image, stego_traditional)
 
-                    results_text += f"✅ Traditional LSB: Embedded in {embed_time_traditional:.3f}s\n"
+                    results_text += f" Traditional LSB: Embedded in {embed_time_traditional:.3f}s\n"
                     results_text += f"   PSNR: {psnr_traditional:.2f} dB, MSE: {mse_traditional:.4f}\n\n"
                 else:
-                    results_text += "❌ Traditional LSB: Embedding failed\n\n"
+                    results_text += " Traditional LSB: Embedding failed\n\n"
 
             self.results_summary.setText(results_text)
             self.plot_image_comparison()
@@ -794,9 +794,9 @@ class SteganographyGUI(QtWidgets.QMainWindow):
                 results_text += f"Enhanced LSB Extraction ({extract_time_enhanced:.3f}s):\n"
                 results_text += f"  Extracted: '{extracted_enhanced}'\n"
                 if extracted_enhanced == self.current_message:
-                    results_text += "  Status: ✅ SUCCESS - Perfect match!\n\n"
+                    results_text += "  Status:  SUCCESS - Perfect match!\n\n"
                 else:
-                    results_text += "  Status: ❌ FAILED - Message corrupted or wrong key\n\n"
+                    results_text += "  Status:  FAILED - Message corrupted or wrong key\n\n"
 
             # Extract from Traditional LSB
             if 'traditional' in self.stego_images:
@@ -807,9 +807,9 @@ class SteganographyGUI(QtWidgets.QMainWindow):
                 results_text += f"Traditional LSB Extraction ({extract_time_traditional:.3f}s):\n"
                 results_text += f"  Extracted: '{extracted_traditional}'\n"
                 if extracted_traditional == self.current_message:
-                    results_text += "  Status: ✅ SUCCESS - Perfect match!\n\n"
+                    results_text += "  Status:  SUCCESS - Perfect match!\n\n"
                 else:
-                    results_text += "  Status: ❌ FAILED - Message corrupted\n\n"
+                    results_text += "  Status:  FAILED - Message corrupted\n\n"
 
             self.results_summary.setText(results_text)
 
